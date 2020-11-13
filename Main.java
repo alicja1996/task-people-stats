@@ -2,6 +2,11 @@ class Main {
     public static void main(String[] args) {
         System.out.println("Hello world");
     }
+    public static void main(String[] args) {
+        PeopleStats peopleStats = new PeopleStats(Paths.get("śćieżka", "do", "pliku"));
+
+        System.out.println(String.format("Liczba osób: %d", peopleStats.count()));
+    }
 }
 
 class PeopleStats {
@@ -15,6 +20,9 @@ class PeopleStats {
                     .collect(Collectors.toList());
         } catch (IOException e) {
             throw new IllegalStateException(e);
+        }
+       public long count() {
+            return people.size();
         }
     }
 
